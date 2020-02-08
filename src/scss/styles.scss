@@ -1,0 +1,120 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans&display=swap');
+@import 'bootstrap/bootstrap';
+@import 'variables';
+@import 'mixins';
+// @import 'slider';
+@import 'animate';
+
+html {
+    font-size: 14px;
+}
+
+section {
+    overflow: hidden;
+}
+
+img {
+    width: 100%;
+}
+
+.marked {
+    position: relative;
+    display: inline-block;
+    &:before {
+        content: '';
+        width: 75px;
+        height: 25px;
+        background-color: $primary;
+        position: absolute;
+        top: 50%;
+        left: -2px;
+        z-index: -1;
+    }
+}
+
+.font-large {
+    font-size: 60px;
+}
+
+.plan {
+    border-top: 5px solid $primary;
+    position: relative;
+    padding: $spacer * 3 $spacer * 3;
+    margin: $spacer;
+    &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 0;
+        height: 0;
+        border: 5px solid transparent;
+        border-top-color: $primary;
+        border-right-color: $primary;
+    }
+    @include hover {
+        box-shadow: 0px 3px 10px 0px rgba($color: #000000, $alpha: .2);
+    }
+}
+
+.bg-white-transparent {
+    background-color: rgba($color: (#ffffff), $alpha: .5);
+}
+
+.headroom {
+    will-change: transform;
+    transition: transform 200ms linear;
+}
+
+.headroom--top {
+    background-color: transparent;
+}
+
+.headroom--pinned {
+    transform: translateY(0%);
+    background-color: rgba($color: (#ffffff), $alpha: .95);
+}
+
+.headroom--unpinned {
+    transform: translateY(-100%);
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: $gray-400;
+    // background-position: center;
+    background-repeat: no-repeat;
+    // background-image: linear-gradient($gray-600, $gray-600), url(../img/bgi.png);
+    // background-blend-mode: overlay;
+    background-image: url(../img/bgmain.png);
+    background-size: cover;
+}
+
+a {
+    color: $primary;
+    @include hover {
+        color: $gray-600;
+        text-decoration: none;
+    }
+}
+
+.footnav {
+    li + li::before {
+        content: '-';
+        margin-right: $spacer * .75;
+    }
+}
+
+.link-inverse {
+    a {
+        color: $gray-600;
+        @include hover {
+            color: $primary;
+            text-decoration: none;
+        }
+    }
+}
